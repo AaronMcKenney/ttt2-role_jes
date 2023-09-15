@@ -218,7 +218,7 @@ if SERVER then
 	hook.Add("TTT2ModifyRadarRole", "TTT2ModifyRadarRoleJester", function(ply, target)
 		if not target:GetTeam() == TEAM_JESTER or not ShouldShowJesterToTeam(ply) then return end
 
-		local roleAndTeam = hook.Run("TTT2JesterModifySyncedRole", ply, syncPly) or {syncPly:GetSubRole(), syncPly:GetTeam()}
+		local roleAndTeam = hook.Run("TTT2JesterModifyRadarRole", ply, target) or {target:GetSubRole(), target:GetTeam()}
 
 		return roleAndTeam[1], roleAndTeam[2]
 	end)
